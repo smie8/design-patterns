@@ -1,7 +1,8 @@
-package com.designpatterns.observer.weatherstation;
+package com.designpatterns.observer;
 
 import com.designpatterns.observer.display.CurrentConditionsDisplay;
 import com.designpatterns.observer.display.StatisticsDisplay;
+import com.designpatterns.observer.weatherdata.WeatherData;
 
 public class WeatherStation {
 

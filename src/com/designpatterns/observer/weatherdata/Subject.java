@@ -1,4 +1,6 @@
-package com.designpatterns.observer;
+package com.designpatterns.observer.weatherdata;
+
+import com.designpatterns.observer.display.Observer;
 
 public interface Subject {
 

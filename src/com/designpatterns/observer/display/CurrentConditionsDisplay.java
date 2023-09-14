@@ -1,7 +1,6 @@
 package com.designpatterns.observer.display;
 
-import com.designpatterns.observer.Observer;
-import com.designpatterns.observer.Subject;
+import com.designpatterns.observer.weatherdata.Subject;
 
 import static com.designpatterns.observer.utils.HeatIndexUtility.computeHeatIndex;
 

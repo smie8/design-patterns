@@ -1,7 +1,6 @@
-package com.designpatterns.observer.weatherstation;
+package com.designpatterns.observer.weatherdata;
 
-import com.designpatterns.observer.Subject;
-import com.designpatterns.observer.Observer;
+import com.designpatterns.observer.display.Observer;
 
 import java.util.ArrayList;
 
