@@ -7,7 +7,7 @@ import com.designpatterns.strategy.duck.ModelDuck;
 
 public class MiniDuckSimulator {
 
-    public static void runSimulator() {
+    public static void main() {
         Duck mallard = new MallardDuck();
         mallard.performQuack();
         mallard.performFly();
