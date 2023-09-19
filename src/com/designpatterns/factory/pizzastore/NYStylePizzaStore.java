@@ -1,22 +1,34 @@
 package com.designpatterns.factory.pizzastore;
 
+import com.designpatterns.factory.ingredients.NYPizzaIngredientFactory;
+import com.designpatterns.factory.ingredients.PizzaIngredientFactory;
+import com.designpatterns.factory.pizza.CheesePizza;
+import com.designpatterns.factory.pizza.ClamPizza;
+import com.designpatterns.factory.pizza.PepperoniPizza;
 import com.designpatterns.factory.pizza.Pizza;
-import com.designpatterns.factory.pizza.ny.NYStyleCheesePizza;
-import com.designpatterns.factory.pizza.ny.NYStyleClamPizza;
-import com.designpatterns.factory.pizza.ny.NYStylePepperoniPizza;
 
 public class NYStylePizzaStore extends PizzaStore {
 
     @Override
     public Pizza createPizza(String type) {
-        if (type.equals("cheese")) {
-            return new NYStyleCheesePizza();
-        } else if (type.equals("pepperoni")) {
-            return new NYStylePepperoniPizza();
-        } else if (type.equals("clam")) {
-            return new NYStyleClamPizza();
-        } else {
-            throw new IllegalArgumentException(String.format("Pizza type %s is not supported", type));
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
+
+        switch (type) {
+            case "cheese":
+                pizza = new CheesePizza(ingredientFactory);
+                pizza.setName("New York Style Cheese Pizza");
+                break;
+            case "clam":
+                pizza = new ClamPizza(ingredientFactory);
+                pizza.setName("New York Style Clam Pizza");
+                break;
+            case "pepperoni":
+                pizza = new PepperoniPizza(ingredientFactory);
+                pizza.setName("New York Style Pepperoni Pizza");
+                break;
         }
+
+        return pizza;
     }
 }

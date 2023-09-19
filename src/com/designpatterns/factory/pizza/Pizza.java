@@ -1,23 +1,23 @@
 package com.designpatterns.factory.pizza;
 
-import java.util.ArrayList;
+import com.designpatterns.factory.ingredients.cheese.Cheese;
+import com.designpatterns.factory.ingredients.clams.Clams;
+import com.designpatterns.factory.ingredients.dough.Dough;
+import com.designpatterns.factory.ingredients.pepperoni.Pepperoni;
+import com.designpatterns.factory.ingredients.sauce.Sauce;
+import com.designpatterns.factory.ingredients.veggies.Veggies;
 
-public class Pizza {
+public abstract class Pizza {
 
     private String name;
-    private String dough;
-    private String sauce;
-    private ArrayList<String> toppings = new ArrayList<>();
+    private Dough dough;
+    private Sauce sauce;
+    private Veggies[] veggies;
+    private Cheese cheese;
+    private Pepperoni pepperoni;
+    private Clams clams;
 
-    public void prepare() {
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings: ");
-        for (String topping : toppings) {
-            System.out.println("    " + topping);
-        }
-    }
+    public abstract void prepare();
 
     public void bake() {
         System.out.println("Baking for 25 minutes at 350 degrees.");
@@ -39,27 +39,51 @@ public class Pizza {
         this.name = name;
     }
 
-    public String getDough() {
+    public Dough getDough() {
         return dough;
     }
 
-    public void setDough(String dough) {
+    public void setDough(Dough dough) {
         this.dough = dough;
     }
 
-    public String getSauce() {
+    public Sauce getSauce() {
         return sauce;
     }
 
-    public void setSauce(String sauce) {
+    public void setSauce(Sauce sauce) {
         this.sauce = sauce;
     }
 
-    public ArrayList<String> getToppings() {
-        return toppings;
+    public Veggies[] getVeggies() {
+        return veggies;
     }
 
-    public void setToppings(ArrayList<String> toppings) {
-        this.toppings = toppings;
+    public void setVeggies(Veggies[] veggies) {
+        this.veggies = veggies;
+    }
+
+    public Cheese getCheese() {
+        return cheese;
+    }
+
+    public void setCheese(Cheese cheese) {
+        this.cheese = cheese;
+    }
+
+    public Pepperoni getPepperoni() {
+        return pepperoni;
+    }
+
+    public void setPepperoni(Pepperoni pepperoni) {
+        this.pepperoni = pepperoni;
+    }
+
+    public Clams getClams() {
+        return clams;
+    }
+
+    public void setClams(Clams clam) {
+        this.clams = clam;
     }
 }
