@@ -24,6 +24,7 @@ Consider these before applying design patterns:
 5. Classes should be open for extension but closed for modification.
 6. Depend upon abstractions. Do not depend upon concrete classes.
 7. Only talk to your friends.
+8. Don't call us, we'll call you.
 
 
 # Object-oriented design basics

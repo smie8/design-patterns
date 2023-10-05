@@ -8,3 +8,4 @@ Pros:
 - Does not encapsulate the subsystem classes or interfaces. It just provides a simplified interface to them, but the client can still access them directly.
 
 Cons:
+- Can become a god object (a class that knows too much or does too much) and is coupled to all classes of an app.
