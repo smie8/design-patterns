@@ -25,11 +25,4 @@ Consider these before applying design patterns:
 6. Depend upon abstractions. Do not depend upon concrete classes.
 7. Only talk to your friends.
 8. Don't call us, we'll call you.
-
-
-# Object-oriented design basics
-
-1. Abstraction
-2. Encapsulation
-3. Polymorphism
-4. Inheritance
+9. A class should have only one reason to change.
