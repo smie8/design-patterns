@@ -4,6 +4,7 @@ import com.designpatterns.iterator.MenuItem;
 
 import java.util.Iterator;
 
+// Array does not have an iterator, so we need to implement it ourselves.
 public class DinerMenuIterator implements Iterator {
 
     MenuItem[] items;

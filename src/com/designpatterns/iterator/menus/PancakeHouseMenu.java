@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 // This is a concrete aggregate.
-public class PancakeHouseMenu implements Menu {
+public class PancakeHouseMenu implements MenuAggregate {
 
     // PancakeHouseMenu is implemented using an ArrayList, vs DinerMenu is implemented using an array
     ArrayList<MenuItem> menuItems;
