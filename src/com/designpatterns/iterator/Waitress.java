@@ -1,16 +1,18 @@
 package com.designpatterns.iterator;
 
-import com.designpatterns.iterator.menus.DinerMenu;
-import com.designpatterns.iterator.menus.PancakeHouseMenu;
+import com.designpatterns.iterator.menus.Menu;
 
 import java.util.Iterator;
 
 public class Waitress {
 
-    PancakeHouseMenu pancakeHouseMenu;
-    DinerMenu dinerMenu;
+    // We replaced concrete implementations of PancakeHouseMenu and DinerMenu with the Menu interface.
+    // So we are reducing the dependency between waitress and concrete classes by
+    // "programming to an interface, not an implementation".
+    Menu pancakeHouseMenu;
+    Menu dinerMenu;
 
-    public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) {
+    public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
         this.pancakeHouseMenu = pancakeHouseMenu;
         this.dinerMenu = dinerMenu;
     }

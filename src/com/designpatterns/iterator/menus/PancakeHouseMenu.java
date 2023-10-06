@@ -1,12 +1,12 @@
 package com.designpatterns.iterator.menus;
 
 import com.designpatterns.iterator.MenuItem;
-import com.designpatterns.iterator.iterators.PancakeHouseMenuIterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PancakeHouseMenu {
+// This is a concrete aggregate.
+public class PancakeHouseMenu implements Menu {
 
     // PancakeHouseMenu is implemented using an ArrayList, vs DinerMenu is implemented using an array
     ArrayList<MenuItem> menuItems;
@@ -30,7 +30,8 @@ public class PancakeHouseMenu {
         return menuItems;
     }
 
+    @Override
     public Iterator createIterator() {
-        return new PancakeHouseMenuIterator(menuItems);
+        return menuItems.iterator();
     }
 }

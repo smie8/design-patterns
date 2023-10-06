@@ -5,7 +5,8 @@ import com.designpatterns.iterator.iterators.DinerMenuIterator;
 
 import java.util.Iterator;
 
-public class DinerMenu {
+// This is a concrete aggregate.
+public class DinerMenu implements Menu {
 
     // DinerMenu is implemented using an array, vs PancakeHouseMenu is implemented using an ArrayList
     static final int MAX_ITEMS = 6;
@@ -36,6 +37,7 @@ public class DinerMenu {
         return menuItems;
     }
 
+    @Override
     public Iterator createIterator() {
         return new DinerMenuIterator(menuItems);
     }
