@@ -1,12 +1,15 @@
 package com.designpatterns.iterator.menus;
 
 import com.designpatterns.composite.MenuComponent;
+import com.designpatterns.iterator.iterators.CompositeIterator;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Menu extends MenuComponent {
 
+    private Iterator iterator = null;
     private List<MenuComponent> menuComponents = new ArrayList<>();
     private String name;
     private String description;
@@ -56,5 +59,14 @@ public class Menu extends MenuComponent {
             // This is polymorphism in action: both menus and menu items have print() method.
             menuComponent.print();
         }
+    }
+
+    @Override
+    public Iterator createIterator() {
+        if (iterator == null) {
+            iterator = new CompositeIterator(menuComponents.iterator());
+        }
+
+        return iterator;
     }
 }

@@ -40,5 +40,7 @@ public class MenuTestDrive {
         // After adding all the menus and menu items, we can now pass the top level menu to the Waitress.
         Waitress waitress = new Waitress(allMenus);
         waitress.printMenu();
+
+        waitress.printVegetarianMenu();
     }
 }

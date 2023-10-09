@@ -1,6 +1,9 @@
 package com.designpatterns.iterator;
 
 import com.designpatterns.composite.MenuComponent;
+import com.designpatterns.iterator.iterators.NullIterator;
+
+import java.util.Iterator;
 
 public class MenuItem extends MenuComponent {
 
@@ -45,4 +48,10 @@ public class MenuItem extends MenuComponent {
         System.out.println(", " + getPrice());
         System.out.println("     -- " + getDescription());
     }
+
+    @Override
+    public Iterator createIterator() {
+        return new NullIterator();
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.designpatterns.composite;
 
+import java.util.Iterator;
+
 public abstract class MenuComponent {
 
     // We need common interface for both menus and menu items (leaf nodes and composite nodes)
@@ -32,6 +34,9 @@ public abstract class MenuComponent {
 
     // Common methods:
     public void print() {
+        throw new UnsupportedOperationException();
+    }
+    public Iterator createIterator() {
         throw new UnsupportedOperationException();
     }
 }
