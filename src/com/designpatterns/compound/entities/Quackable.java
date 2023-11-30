@@ -1,6 +1,8 @@
 package com.designpatterns.compound.entities;
 
-public interface Quackable {
+import com.designpatterns.compound.observer.QuackObservable;
+
+public interface Quackable extends QuackObservable {
 
     void quack();
 }

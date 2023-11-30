@@ -1,35 +1,54 @@
 package com.designpatterns.compound;
 
 import com.designpatterns.compound.adapter.GooseAdapter;
+import com.designpatterns.compound.composite.Flock;
 import com.designpatterns.compound.decorator.QuackCounter;
-import com.designpatterns.compound.entities.DuckCall;
 import com.designpatterns.compound.entities.Goose;
-import com.designpatterns.compound.entities.MallardDuck;
 import com.designpatterns.compound.entities.Quackable;
-import com.designpatterns.compound.entities.RedheadDuck;
-import com.designpatterns.compound.entities.RubberDuck;
+import com.designpatterns.compound.factory.AbstractDuckFactory;
+import com.designpatterns.compound.factory.CountingDuckFactory;
+import com.designpatterns.compound.observer.Quackologist;
 
 public class DuckSimulator {
 
     public static void main(String[] args) {
         DuckSimulator simulator = new DuckSimulator();
-        simulator.simulate();
+        AbstractDuckFactory duckFactory = new CountingDuckFactory();
+
+        simulator.simulate(duckFactory);
     }
 
-    private void simulate() {
-        Quackable mallardDuck = new QuackCounter(new MallardDuck());
-        Quackable redheadDuck = new QuackCounter(new RedheadDuck());
-        Quackable duckCall = new QuackCounter(new DuckCall());
-        Quackable rubberDuck = new QuackCounter(new RubberDuck());
-        Quackable goose = new GooseAdapter(new Goose()); // We are not counting goose honks
+    private void simulate(AbstractDuckFactory duckFactory) {
+        Quackable redheadDuck = duckFactory.createRedheadDuck();
+        Quackable duckCall = duckFactory.createDuckCall();
+        Quackable rubberDuck = duckFactory.createRubberDuck();
+        Quackable gooseDuck = new GooseAdapter(new Goose()); // We are not counting goose honks
+        System.out.println("\nDuck Simulator: With Composite - Flocks");
 
-        System.out.println("\nDuck Simulator\n");
+        Flock flockOfDucks = new Flock();
+        flockOfDucks.add(redheadDuck);
+        flockOfDucks.add(duckCall);
+        flockOfDucks.add(rubberDuck);
+        flockOfDucks.add(gooseDuck);
 
-        simulate(mallardDuck);
-        simulate(redheadDuck);
-        simulate(duckCall);
-        simulate(rubberDuck);
-        simulate(goose);
+        Flock flockOfMallards = new Flock();
+        Quackable mallardOne = duckFactory.createMallardDuck();
+        Quackable mallardTwo = duckFactory.createMallardDuck();
+        Quackable mallardThree = duckFactory.createMallardDuck();
+        Quackable mallardFour = duckFactory.createMallardDuck();
+        flockOfMallards.add(mallardOne);
+        flockOfMallards.add(mallardTwo);
+        flockOfMallards.add(mallardThree);
+        flockOfMallards.add(mallardFour);
+
+        flockOfDucks.add(flockOfMallards);
+
+        System.out.println("\nDuck Simulator: With Observer");
+
+        Quackologist quackologist = new Quackologist();
+        flockOfDucks.registerObserver(quackologist);
+
+        simulate(flockOfDucks);
 
         System.out.println("\nThe ducks quacked " + QuackCounter.getQuacks() + " times");
     }
