@@ -31,6 +31,6 @@ public class QuackCounter implements Quackable {
 
     @Override
     public void notifyObservers() {
-        this.observable.notifyObservers();
+        duck.notifyObservers();
     }
 }
