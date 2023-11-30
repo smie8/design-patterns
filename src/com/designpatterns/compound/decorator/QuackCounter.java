@@ -26,7 +26,7 @@ public class QuackCounter implements Quackable {
 
     @Override
     public void registerObserver(Observer observer) {
-        this.observable.registerObserver(observer);
+        duck.registerObserver(observer);
     }
 
     @Override
